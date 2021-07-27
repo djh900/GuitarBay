@@ -5,6 +5,9 @@ $grey-color: #444444;
 $red-color: #da0037;
 $white-color: #ededed;
 
+$font-karla: "Karla", sans-serif;
+$font-spectral: "Spectral", serif;
+
 // CSS reset
 
 * {
@@ -15,5 +18,6 @@ $white-color: #ededed;
 
 // Importing partials
 
-@import "global/navbar";
-@import "global/footer";
+@import "partials/global/navbar";
+@import "partials/global/footer";
+@import "partials/homepage";
