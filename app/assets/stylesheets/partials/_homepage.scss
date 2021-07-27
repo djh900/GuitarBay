@@ -1,0 +1,10 @@
+#splash-image {
+  display: flex;
+  background: url("homepage-splash-image.jpg") no-repeat center center/cover;
+  height: 100vh;
+  font-family: $font-spectral;
+  color: $white-color;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
