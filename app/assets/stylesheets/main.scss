@@ -21,3 +21,10 @@ $font-spectral: "Spectral", serif;
 @import "partials/global/navbar";
 @import "partials/global/footer";
 @import "partials/homepage";
+
+// Default background color and font
+
+body {
+  background: $grey-color;
+  font-family: $font-karla;
+}
