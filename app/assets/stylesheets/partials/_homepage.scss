@@ -67,6 +67,8 @@
   }
 }
 
+// Call to action section
+
 #call-to-action {
   height: 300px;
   display: flex;
@@ -102,5 +104,16 @@
     &:hover {
       background: black;
     }
+  }
+}
+
+// Testimonials section
+
+#testimonials {
+  background: $white-color;
+  h2 {
+    color: $black-color;
+    font-family: $font-headings;
+    margin-left: 30px;
   }
 }
