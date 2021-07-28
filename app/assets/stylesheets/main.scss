@@ -5,8 +5,8 @@ $grey-color: #444444;
 $red-color: #da0037;
 $white-color: #ededed;
 
-$font-karla: "Karla", sans-serif;
-$font-spectral: "Spectral", serif;
+$font-body: "Karla", sans-serif;
+$font-headings: "Spectral", serif;
 
 // CSS reset
 
@@ -26,5 +26,11 @@ $font-spectral: "Spectral", serif;
 
 body {
   background: $grey-color;
-  font-family: $font-karla;
+  font-family: $font-body;
+}
+
+.whitespace-buffer {
+  display: block;
+  height: 30px;
+  background: $white-color;
 }
