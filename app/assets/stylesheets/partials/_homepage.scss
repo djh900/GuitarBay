@@ -66,3 +66,41 @@
     }
   }
 }
+
+#call-to-action {
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  #call-to-action-text-container {
+    color: $white-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h2 {
+      font-family: $font-headings;
+      padding: 20px 0 10px 30px;
+    }
+    p {
+      font-size: 13pt;
+      line-height: 1.4em;
+      padding: 0 30px 30px 30px;
+    }
+  }
+  img {
+    max-width: 50%;
+  }
+  a {
+    color: $white-color;
+    text-decoration: none;
+    background: $black-color;
+    padding: 15px 20px;
+    border-radius: 3px;
+    font-size: 13pt;
+    align-self: center;
+    margin-bottom: 30px;
+
+    &:hover {
+      background: black;
+    }
+  }
+}
