@@ -1,3 +1,5 @@
+// Splash Image section
+
 #splash-image {
   display: flex;
   background: url("homepage-splash-image.jpg") no-repeat center center/cover;
@@ -7,7 +9,7 @@
   justify-content: center;
   align-items: center;
   h1 {
-    font-family: $font-spectral;
+    font-family: $font-headings;
     font-size: 50px;
     margin: 10px;
   }
@@ -24,6 +26,43 @@
     font-size: 14pt;
     &:hover {
       background: black;
+    }
+  }
+}
+
+// Recent listings section
+
+#recent-listings-heading {
+  background: $white-color;
+  h2 {
+    color: $black-color;
+    padding: 20px 0 10px 30px;
+    font-family: $font-headings;
+  }
+}
+
+#recent-listings {
+  background: $white-color;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .recent-listing {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 270px;
+    width: 200px;
+    border: 1px black solid;
+    img {
+      height: 180px;
+      margin-bottom: 10px;
+    }
+    .recent-listing-price {
+      align-self: flex-end;
+      padding-right: 20px;
     }
   }
 }
