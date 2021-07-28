@@ -1,16 +1,19 @@
 <nav>
   <a href="/home" id="navbar-logo-link"><%= image_tag asset_path('logo.png'), id: "navbar-logo" %></a>
   <% if user_signed_in? %>
-    <a href="#" class="navbar-link">Link 3</a>
-    <a href="#" class="navbar-link">Link 4</a>
-    <a href="#" class="navbar-link">Link 5</a>
-    <a href="#" class="navbar-link">Link 5</a>
+    <a href="/home" class="navbar-link">Home</a>
+    <a href="#" class="navbar-link">Listings</a>
+    <a href="#" class="navbar-link">My Listings</a>
+    <a href="#" class="navbar-link">Create a Listing</a>
+    <a href="#" class="navbar-link">My Account</a>
+    <a href="/help" class="navbar-link">Help</a>
+    <p class="navbar-link signed-in-as">Signed in as <%= current_user.username %></p>
     <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-link" %>
   <% else %>
+    <a href="/home" class="navbar-link">Home</a>
+    <a href="#" class="navbar-link">Listings</a>
+    <a href="/help" class="navbar-link">Help</a>
     <%= link_to "Sign In", new_user_session_path, class: "navbar-link" %>
     <%= link_to "Register", new_user_registration_path, class: "navbar-link" %>
-    <a href="#" class="navbar-link">Link 3</a>
-    <a href="#" class="navbar-link">Link 4</a>
-    <a href="#" class="navbar-link">Link 5</a>
   <% end %>
 </nav>

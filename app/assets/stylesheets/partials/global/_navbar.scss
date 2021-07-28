@@ -15,10 +15,13 @@ nav {
   .navbar-link {
     color: $white-color;
     text-decoration: none;
-    padding: 13px 15px;
+    padding: 14px 15px;
     font-size: 13pt;
     &:hover {
       background: black;
     }
+  }
+  .signed-in-as:hover {
+    background: none;
   }
 }
