@@ -56,6 +56,9 @@
     height: 270px;
     width: 200px;
     border: 1px black solid;
+    &:hover {
+      background: lightgray;
+    }
     img {
       height: 180px;
       margin-bottom: 10px;
@@ -128,6 +131,9 @@
     display: flex;
     max-width: 80vw;
     margin-bottom: 20px;
+    &:hover {
+      background: lightgray;
+    }
     img {
       height: 100px;
       border-radius: 50px;
@@ -140,6 +146,9 @@
       justify-content: space-around;
       padding: 5px 30px;
       color: $black-color;
+      .testimonial-identity {
+        font-size: 10pt;
+      }
     }
   }
 }
