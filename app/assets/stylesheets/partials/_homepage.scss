@@ -129,7 +129,8 @@
   .testimonial {
     border: 1px solid black;
     display: flex;
-    max-width: 80vw;
+    width: 80%;
+    max-width: 1400px;
     margin-bottom: 20px;
     &:hover {
       background: lightgray;
