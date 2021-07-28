@@ -1,10 +1,29 @@
 #splash-image {
   display: flex;
   background: url("homepage-splash-image.jpg") no-repeat center center/cover;
-  height: 100vh;
-  font-family: $font-spectral;
+  height: 80vh;
   color: $white-color;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h1 {
+    font-family: $font-spectral;
+    font-size: 50px;
+    margin: 10px;
+  }
+  p {
+    margin-bottom: 30px;
+    font-size: 14pt;
+  }
+  a {
+    color: $white-color;
+    text-decoration: none;
+    background: $black-color;
+    padding: 15px 20px;
+    border-radius: 3px;
+    font-size: 14pt;
+    &:hover {
+      background: black;
+    }
+  }
 }
