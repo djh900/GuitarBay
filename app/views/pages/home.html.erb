@@ -1,9 +1,14 @@
 <% # Splash Image %>
 
 <section id="splash-image">
-  <h1>SELL YOUR GUITAR</h1>
-  <p>Low commission. Australian-based. No listing fees.</p>
-  <a href="#">Get Started</a>
+  <% if user_signed_in? %>
+    <h1>Welcome back, <%= current_user.first_name %></h1>
+    <a href="#">My Account</a>
+  <% else %>
+    <h1>SELL YOUR GUITAR</h1>
+    <p>Low commission. Australian-based. No listing fees.</p>
+    <a href="#">Get Started</a>
+  <% end %>
 </section>
 
 <% # Recent Listings %>
@@ -58,9 +63,15 @@
 <section id="call-to-action">
 
   <div id="call-to-action-text-container">
-    <h2>HOW IT WORKS</h2>
-    <p>Create an account to buy and sell guitars with hundreds of other musos throughout Australia. We offer secure payments through Stripe and detailed item listings so you can be sure of what you're purchasing, as well as Australian-based support.</p>
-    <a href="#">Create an Account</a>
+    <% if user_signed_in? %>
+      <h2>LOOKING FOR SOMETHING?</h2>
+      <p>Browse hundreds of listings and find your dream guitar. We have a huge range of guitars listed including both new and vintage Fender, Gibson, Yamaha and Ibanez.</p>
+      <a href="#">Browse Listings</a>
+    <% else %>
+      <h2>HOW IT WORKS</h2>
+      <p>Create an account to buy and sell guitars with hundreds of other musos throughout Australia. We offer secure payments through Stripe and detailed item listings so you can be sure of what you're purchasing, as well as Australian-based support.</p>
+      <a href="#">Create an Account</a>
+    <% end %>
   </div>
 
   <%= image_tag asset_path('homepage-call-to-action.jpg')%>
