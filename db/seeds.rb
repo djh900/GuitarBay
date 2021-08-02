@@ -61,6 +61,7 @@ colors = [
 ]
 
 materials = [
+  " ",
   "Ash",
   "Alder",
   "Basswood",
@@ -73,6 +74,7 @@ materials = [
 ]
 
 fingerboards = [
+  " ",
   "Ebony",
   "Maple",
   "Other",
@@ -81,6 +83,7 @@ fingerboards = [
 ]
 
 bridges = [
+  " ",
   "Fixed - Hardtail",
   "Fixed - Tune-O-Matic",
   "Fixed - Wraparound",
@@ -95,6 +98,7 @@ bridges = [
 ]
 
 countries = [
+  " ",
   "China",
   "Indonesia",
   "Japan",
