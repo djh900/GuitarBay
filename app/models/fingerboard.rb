@@ -1,0 +1,2 @@
+class Fingerboard < ApplicationRecord
+end
