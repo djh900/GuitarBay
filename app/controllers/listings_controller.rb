@@ -6,7 +6,19 @@ class ListingsController < ApplicationController
     @listings = Listing.all
   end
   
-  def new; end
+  
+  def new
+    @categories = Category.all
+    @manufacturers = Manufacturer.all
+    @conditions = Condition.all
+    @colors = Color.all
+    @materials = Material.all
+    @fingerboards = Fingerboard.all
+    @bridges = Bridge.all
+    @countries = Country.all
+    @cases = Case.all
+    @deliveries = Delivery.all
+  end
 
   def create; end
 
