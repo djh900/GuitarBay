@@ -42,14 +42,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 270px;
+    height: 280px;
     width: 200px;
     border: 1px black solid;
     &:hover {
       background: lightgray;
     }
-    img {
+    .recent-image {
       height: 180px;
+      display: flex;
+      align-items: center;
+    }
+    h3 {
+      font-size: 12pt;
+      padding: 0 5px;
+    }
+    img {
+      max-height: 180px;
+      max-width: 180px;
       margin-bottom: 10px;
     }
     .recent-listing-price {
