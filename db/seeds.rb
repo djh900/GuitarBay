@@ -52,6 +52,7 @@ colors = [
   "Blue",
   "Natural/Wood",
   "Sunburst",
+  "Other",
   "Yellow",
   "Grey",
   "Green",
