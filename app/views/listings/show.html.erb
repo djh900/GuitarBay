@@ -1,1 +1,55 @@
-<p>Show an individual listing</p>
+<main id="show-listing-page">
+  <div class="image-and-title">
+    <% if @listing.image.attached? %>
+      <%= image_tag @listing.image %>
+    <% else %>
+      <%= image_tag asset_path('generic-guitar-small.jpg') %>
+    <% end %>
+    <div class="title">
+      <h1>
+        <%= @listing.year_manufactured if @listing.year_manufactured %>
+        <%= @listing.manufacturer.name %>
+        <%= @listing.model %>
+      </h1>
+      <p class="red-text">$<%= @listing.price %></p>
+      <p>Listed by <%= @listing.user.username %> on <%= @listing.created_at.to_s.first(10) %></p>
+      <div class="show-buttons">
+        <a href="#" class="listing-button">Buy Now</a>
+        <% if user_signed_in? %>
+          <a href="mailto: <%= @listing.user.email %>" class="listing-button">Contact Seller</a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="delivery-and-shipping">
+    <p><span class="bold-text">Delivery:</span> <%= @listing.delivery.name %></p>
+    <p><span class="bold-text">Location:</span> <%= @listing.location %></p>
+  </div>
+  <div class="features">
+    <h2>Features</h2>
+    <div class="features-list">
+      <div class="features-row">
+        <p><span class="bold-text">Condition:</span> <%= @listing.condition.name %></p>
+        <p><span class="bold-text">Color:</span> <%= @listing.color.name %></p>
+        <p><span class="bold-text">Body material:</span> <%= @listing.material.name %></p>
+        <p><span class="bold-text">Fingerboard material:</span> <%= @listing.fingerboard.name %></p>
+        <p><span class="bold-text">Scale length:</span> <%= @listing.scale_length %></p>
+        <p><span class="bold-text">Fingerboard radius:</span> <%= @listing.fingerboard_radius %></p>
+        <p><span class="bold-text">Number of frets:</span> <%= @listing.number_of_frets %></p>
+      </div>
+      <div class="features-row">
+        <p><span class="bold-text">Bridge type:</span> <%= @listing.bridge.name %></p>
+        <p><span class="bold-text">Neck pickup:</span> <%= @listing.neck_pickup %></p>
+        <p><span class="bold-text">Bridge pickup:</span> <%= @listing.bridge_pickup %></p>
+        <p><span class="bold-text">Country manufactured</span> <%= @listing.country.name %></p>
+        <p><span class="bold-text">Year manufactured:</span> <%= @listing.year_manufactured %></p>
+        <p><span class="bold-text">Serial number:</span> <%= @listing.serial_number %></p>
+        <p><span class="bold-text">Case: </span> <%= @listing.case.name %></p>
+      </div>
+    </div>
+  </div>
+  <div class="description">
+    <h2>Description</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis exercitationem eveniet quasi inventore quos veniam repudiandae voluptatibus minus optio necessitatibus atque minima quo quidem voluptatem, repellat eum quod. At repudiandae voluptate voluptatum similique fugiat. Dolore, facilis ut! Animi labore error alias! Minus ipsa tempore quod ex pariatur, doloribus molestias et dolores, tenetur vero culpa veniam laudantium illo consectetur deserunt odit autem sequi ratione labore totam possimus sed modi. A quam rerum</p>
+  </div>
+</main>

@@ -1,0 +1,66 @@
+#show-listing-page {
+  max-width: 1000px;
+  background: $white-color;
+  margin: 50px auto 50px auto;
+  padding-bottom: 30px;
+
+  .image-and-title {
+    display: flex;
+    min-height: 250px;
+    max-height: 500px;
+    img {
+      max-width: 450px;
+      max-height: 450px;
+      padding: 25px;
+    }
+    .title {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 25px;
+      h1 {
+        font-family: $font-headings;
+      }
+      p {
+        font-size: 14pt;
+      }
+      .show-buttons {
+        a {
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+
+  .delivery-and-shipping,
+  .features,
+  .description {
+    border: 1px black solid;
+    margin: 25px;
+    padding: 20px;
+    background: white;
+  }
+
+  .delivery-and-shipping {
+    font-size: 14pt;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .features-list {
+    margin-top: 15px;
+    display: flex;
+    .features-row {
+      width: 50%;
+      p {
+        margin: 2px 0;
+      }
+    }
+  }
+  .description {
+    p {
+      line-height: 1.5em;
+      padding-top: 15px;
+    }
+  }
+}
