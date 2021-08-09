@@ -7,6 +7,10 @@
   .required {
     color: $red-color;
   }
+  #error-messages {
+    padding-top: 10px;
+    font-size: 14pt;
+  }
   #disclaimer {
     padding: 10px 0 20px 0;
   }
