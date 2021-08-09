@@ -17,12 +17,12 @@
           <%= listing.model %>
         </div>
         <div class="listing-details">
-          <%= listing.user.username %>
-          $<%= listing.price %>
-          <%= listing.created_at.to_s.first(10) %>
-          <%= listing.location %>
-          <%= listing.category.name %>
-          <%= link_to "View", listing_path(listing) %>
+          <p><span class="red-text">$<%= listing.price %></span> &emsp; Listed by <%= listing.user.username %> on <%= listing.created_at.to_s.first(10) %></p>
+        </div>
+        <div class="listing-buttons">
+          <p><%= listing.location %></p>
+          <p><%= listing.category.name %></p>
+          <%= link_to "View", listing_path(listing), class: "listing-button" %>
         </div>
       </div>
     </div>
