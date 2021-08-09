@@ -10,4 +10,8 @@ class Listing < ApplicationRecord
   belongs_to :country
   belongs_to :case
   belongs_to :delivery
+
+  validates :model, presence: true
+  validates :price, presence: true
+  validates :location, presence: true
 end
