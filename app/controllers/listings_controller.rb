@@ -16,6 +16,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(strong_params)
     @listing.user_id = current_user.id
     if @listing.save
+      flash[:notice] = "New listing created successfully!"
       redirect_to listing_path(@listing)
     else
       prefill_select_menus
