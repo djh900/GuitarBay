@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
 
+  # Ensure that a user is logged in before they can create/update/destroy any listings
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -13,6 +14,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(strong_params)
+    @listing.user_id = current_user.id
     if @listing.save
       redirect_to listing_path(@listing)
     else
@@ -37,9 +39,13 @@ class ListingsController < ApplicationController
 
   private
 
+  # Function to permit listing attributes through the strong params security feature
+
   def strong_params
     params.require(:listing).permit(:category_id, :manufacturer_id, :model, :condition_id, :price, :color_id, :material_id, :fingerboard_id, :scale_length, :fingerboard_radius, :number_of_frets, :bridge_id, :neck_pickup, :bridge_pickup, :country_id, :year_manufactured, :serial_number, :case_id, :description, :delivery_id)
   end
+
+  # Function to prefill the select menu options in the new and edit forms
 
   def prefill_select_menus
     @categories = Category.all
