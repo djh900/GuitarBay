@@ -3,18 +3,27 @@
 <main id="listings-index-page">
   <% @listings.each do |listing| %>
     <div class="card">
-      <div class="listing-title">
-        <%= listing.year_manufactured if listing.year_manufactured %>
-        <%= listing.manufacturer.name %>
-        <%= listing.model %>
+      <div class="item-image">
+        <% if listing.image.attached? %>
+          <%= image_tag listing.image %>
+        <% else %>
+          <%= image_tag asset_path('generic-guitar-small.jpg') %>
+        <% end %>
       </div>
-      <div class="listing-details">
-        <%= listing.user.username %>
-        $<%= listing.price %>
-        <%= listing.created_at.to_s.first(10) %>
-        <%= listing.location %>
-        <%= listing.category.name %>
-        <%= link_to "View", listing_path(listing) %>
+      <div class="item-description">
+        <div class="listing-title">
+          <%= listing.year_manufactured if listing.year_manufactured %>
+          <%= listing.manufacturer.name %>
+          <%= listing.model %>
+        </div>
+        <div class="listing-details">
+          <%= listing.user.username %>
+          $<%= listing.price %>
+          <%= listing.created_at.to_s.first(10) %>
+          <%= listing.location %>
+          <%= listing.category.name %>
+          <%= link_to "View", listing_path(listing) %>
+        </div>
       </div>
     </div>
   <% end %>

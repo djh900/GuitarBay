@@ -11,6 +11,8 @@ class Listing < ApplicationRecord
   belongs_to :case
   belongs_to :delivery
 
+  has_one_attached :image
+
   validates :model, presence: true
   validates :price, presence: true
   validates :location, presence: true

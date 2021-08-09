@@ -118,6 +118,11 @@
     <%= f.select :delivery_id, @deliveries.map { |i| [i.name, i.id] } %>
   </div>
 
+  <div class="form-section">
+    <%= f.label :image %>
+    <%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %>
+  </div>
+
   <div class="form-buttons">
     <%= f.submit "Submit", class: "button" %>
     <%= link_to "Cancel", listings_path, class: "button" %>
