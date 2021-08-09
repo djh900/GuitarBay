@@ -12,6 +12,7 @@
         <%= listing.user.username %>
         $<%= listing.price %>
         <%= listing.created_at.to_s.first(10) %>
+        <%= listing.location %>
         <%= listing.category.name %>
         <%= link_to "View", listing_path(listing) %>
       </div>

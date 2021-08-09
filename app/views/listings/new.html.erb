@@ -109,6 +109,11 @@
   </div>
 
   <div class="form-section">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="form-section">
     <%= f.label :delivery_options, class: "required" %>
     <%= f.select :delivery_id, @deliveries.map { |i| [i.name, i.id] } %>
   </div>
