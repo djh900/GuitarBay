@@ -1,7 +1,15 @@
 <h1 class="page-heading">NEW LISTING</h1>
 
-
 <%= form_with scope: :listing, url: listings_path, id: "listing-form", local: true do |f| %>
+
+  <% if @listing.errors.any? %>
+    <div id="error-messages">
+      <p class="required">The following errors occurred:</p>
+      <% @listing.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
 
   <p id="disclaimer">Items marked in <span class="required">RED</span> are required.<br>Please try to be as accurate as possible when creating a listing.<br>For details on how we assess condition, please see the <a href="/help#condition-guide">Condition Guide</a></p>
 
