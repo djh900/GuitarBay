@@ -24,6 +24,7 @@ $font-headings: "Spectral", serif;
 @import "partials/homepage";
 @import "partials/helppage";
 @import "partials/listings-index-page";
+@import "partials/show-listing-page";
 @import "partials/listings-form";
 
 // Default background color and font
@@ -63,6 +64,10 @@ body {
 
 .red-text {
   color: $red-color;
+}
+
+.bold-text {
+  font-weight: 700;
 }
 
 .listing-button {
