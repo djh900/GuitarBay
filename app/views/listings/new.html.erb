@@ -1,34 +1,37 @@
 <h1 class="page-heading">NEW LISTING</h1>
 
-<%= form_with scope: :listing, url: listings_path, class: "listing-form", local: true do |f| %>
+
+<%= form_with scope: :listing, url: listings_path, id: "listing-form", local: true do |f| %>
+
+  <p id="disclaimer">Items marked in <span class="required">RED</span> are required.<br>Please try to be as accurate as possible when creating a listing.<br>For details on how we assess condition, please see the <a href="/help#condition-guide">Condition Guide</a></p>
 
   <div class="form-section">
-    <%= f.label :category %>
+    <%= f.label :category, class: "required" %>
     <%= f.select :category_id, @categories.map { |i| [i.name, i.id] } %>
   </div>
 
   <div class="form-section">
-    <%= f.label :manufacturer %>
+    <%= f.label :manufacturer, class: "required" %>
     <%= f.select :manufacturer_id, @manufacturers.map { |i| [i.name, i.id] } %>
   </div>
 
   <div class="form-section">
-    <%= f.label :model %>
+    <%= f.label :model, class: "required" %>
     <%= f.text_field :model %>
   </div>
 
   <div class="form-section">
-    <%= f.label :condition %>
+    <%= f.label :condition, class: "required" %>
     <%= f.select :condition_id, @conditions.map { |i| [i.name, i.id] } %>
   </div>
 
   <div class="form-section">
-    <%= f.label :price %>
+    <%= f.label :price, class: "required" %>
     <%= f.number_field :price %>
   </div>
 
   <div class="form-section">
-    <%= f.label :color %>
+    <%= f.label :color, class: "required" %>
     <%= f.select :color_id, @colors.map { |i| [i.name, i.id] } %>
   </div>
 
@@ -88,7 +91,7 @@
   </div>
 
   <div class="form-section">
-    <%= f.label :case %>
+    <%= f.label :case, class: "required" %>
     <%= f.select :case_id, @cases.map { |i| [i.name, i.id] } %>
   </div>
 
@@ -98,8 +101,13 @@
   </div>
 
   <div class="form-section">
-    <%= f.label :delivery_options %>
+    <%= f.label :delivery_options, class: "required" %>
     <%= f.select :delivery_id, @deliveries.map { |i| [i.name, i.id] } %>
+  </div>
+
+  <div class="form-buttons">
+    <%= f.submit "Submit", class: "button" %>
+    <%= link_to "Cancel", listings_path, class: "button" %>
   </div>
 
 <% end %>
