@@ -13,7 +13,7 @@ class Listing < ApplicationRecord
 
   has_one_attached :image
 
-  validates :model, presence: true
+  validates :model, presence: true, length: { maximum: 30 }
   validates :price, presence: true
   validates :location, presence: true
 end
