@@ -1,0 +1,32 @@
+#listing-form {
+  max-width: 730px;
+  background: $white-color;
+  color: $black-color;
+  margin: 0 auto 50px auto;
+  padding: 20px 100px;
+  .required {
+    color: $red-color;
+  }
+  #disclaimer {
+    padding: 10px 0 20px 0;
+  }
+  .form-section {
+    font-size: 16pt;
+    display: flex;
+    justify-content: space-between;
+    margin: 14px 0;
+    select,
+    input,
+    textarea {
+      font-size: 14pt;
+      width: 250px;
+      padding: 5px;
+    }
+  }
+  .form-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100px;
+  }
+}
