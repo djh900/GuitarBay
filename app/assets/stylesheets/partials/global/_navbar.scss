@@ -18,7 +18,7 @@ nav {
     padding: 13px 15px;
     font-size: 13pt;
     &:hover {
-      background: black;
+      background: $red-color;
     }
   }
   .signed-in-as:hover {
