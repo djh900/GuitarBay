@@ -20,10 +20,16 @@
 <section id="recent-listings">
 
   <div class="recent-listing">
-    <%= image_tag asset_path('generic-guitar-small.jpg')%>
-    <h3>Listing Name</h3>
-    <p class="recent-listing-username">Username_of_lister</p>
-    <p class="recent-listing-price">$499</p>
+    <div class="recent-image">
+      <% if @recent_listing.image.attached? %>
+        <%= image_tag @recent_listing.image %>
+      <% else %>
+        <%= image_tag asset_path('generic-guitar-small.jpg') %>
+      <% end %>
+    </div>
+    <h3><%= @recent_listing.year_manufactured %> <%= @recent_listing.model %></h3>
+    <p class="recent-listing-username">Listed by <%= @recent_listing.user.username %></p>
+    <p class="recent-listing-price">$<%= @recent_listing.price %></p>
   </div>
 
     <div class="recent-listing">
