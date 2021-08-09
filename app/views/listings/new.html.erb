@@ -1,55 +1,105 @@
-<p>Form for creating a new listing</p>
+<h1 class="page-heading">NEW LISTING</h1>
 
-<%= form_with scope: :listing, url: listings_path, local: true do |f| %>
+<%= form_with scope: :listing, url: listings_path, class: "listing-form", local: true do |f| %>
 
-<div class="form-section">
-  <%= f.label :category %>
-  <%= f.select :category_id, @categories.map { |i| [i.name, i.id] } %>
-</div>
+  <div class="form-section">
+    <%= f.label :category %>
+    <%= f.select :category_id, @categories.map { |i| [i.name, i.id] } %>
+  </div>
 
-<div class="form-section">
-  <%= f.label :manufacturer %>
-  <%= f.select :manufacturer_id, @manufacturers.map { |i| [i.name, i.id] } %>
-</div>
+  <div class="form-section">
+    <%= f.label :manufacturer %>
+    <%= f.select :manufacturer_id, @manufacturers.map { |i| [i.name, i.id] } %>
+  </div>
 
-<div class="form-section">
-  <%= f.label :condition %>
-  <%= f.select :condition_id, @conditions.map { |i| [i.name, i.id] } %>
-</div>
+  <div class="form-section">
+    <%= f.label :model %>
+    <%= f.text_field :model %>
+  </div>
 
-<div class="form-section">
-  <%= f.label :color %>
-  <%= f.select :color_id, @colors.map { |i| [i.name, i.id] } %>
-</div>
+  <div class="form-section">
+    <%= f.label :condition %>
+    <%= f.select :condition_id, @conditions.map { |i| [i.name, i.id] } %>
+  </div>
 
-<div class="form-section">
-  <%= f.label :body_material %>
-  <%= f.select :material_id, @materials.map { |i| [i.name, i.id] } %>
-</div>
+  <div class="form-section">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
 
-<div class="form-section">
-  <%= f.label :fingerboard_material %>
-  <%= f.select :fingerboard_id, @fingerboards.map { |i| [i.name, i.id] } %>
-</div>
+  <div class="form-section">
+    <%= f.label :color %>
+    <%= f.select :color_id, @colors.map { |i| [i.name, i.id] } %>
+  </div>
 
-<div class="form-section">
-  <%= f.label :bridge %>
-  <%= f.select :bridge_id, @bridges.map { |i| [i.name, i.id] } %>
-</div>
+  <div class="form-section">
+    <%= f.label :body_material %>
+    <%= f.select :material_id, @materials.map { |i| [i.name, i.id] } %>
+  </div>
 
-<div class="form-section">
-  <%= f.label :country_manufactured %>
-  <%= f.select :country_id, @countries.map { |i| [i.name, i.id] } %>
-</div>
+  <div class="form-section">
+    <%= f.label :fingerboard_material %>
+    <%= f.select :fingerboard_id, @fingerboards.map { |i| [i.name, i.id] } %>
+  </div>
 
-<div class="form-section">
-  <%= f.label :case %>
-  <%= f.select :case_id, @cases.map { |i| [i.name, i.id] } %>
-</div>
+  <div class="form-section">
+    <%= f.label :scale_length %>
+    <%= f.number_field :scale_length %>
+  </div>
 
-<div class="form-section">
-  <%= f.label :delivery_options %>
-  <%= f.select :delivery_id, @deliveries.map { |i| [i.name, i.id] } %>
-</div>
+  <div class="form-section">
+    <%= f.label :fingerboard_radius %>
+    <%= f.number_field :fingerboard_radius %>
+  </div>
+
+  <div class="form-section">
+    <%= f.label :number_of_frets %>
+    <%= f.number_field :number_of_frets %>
+  </div>
+
+  <div class="form-section">
+    <%= f.label :bridge %>
+    <%= f.select :bridge_id, @bridges.map { |i| [i.name, i.id] } %>
+  </div>
+
+  <div class="form-section">
+    <%= f.label :neck_pickup %>
+    <%= f.text_field :neck_pickup %>
+  </div>
+
+  <div class="form-section">
+    <%= f.label :bridge_pickup %>
+    <%= f.text_field :bridge_pickup %>
+  </div>
+
+  <div class="form-section">
+    <%= f.label :country_manufactured %>
+    <%= f.select :country_id, @countries.map { |i| [i.name, i.id] } %>
+  </div>
+
+  <div class="form-section">
+    <%= f.label :year_manufactured %>
+    <%= f.number_field :year_manufactured %>
+  </div>
+
+  <div class="form-section">
+    <%= f.label :serial_number %>
+    <%= f.text_field :serial_number %>
+  </div>
+
+  <div class="form-section">
+    <%= f.label :case %>
+    <%= f.select :case_id, @cases.map { |i| [i.name, i.id] } %>
+  </div>
+
+  <div class="form-section">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="form-section">
+    <%= f.label :delivery_options %>
+    <%= f.select :delivery_id, @deliveries.map { |i| [i.name, i.id] } %>
+  </div>
 
 <% end %>
