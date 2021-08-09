@@ -1,0 +1,10 @@
+#listings-index-page {
+  background: $white-color;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  .card {
+    border: 1px solid black;
+    margin: 20px;
+  }
+}
