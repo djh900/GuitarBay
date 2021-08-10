@@ -35,6 +35,27 @@ class ListingsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       render_404
     end
+
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      customer_email: current_user&.email,
+      line_items:[{
+        name: "#{@listing.year_manufactured} #{@listing.manufacturer.name} #{@listing.model}",
+        amount: @listing.price*100,
+        currency: 'aud',
+        quantity: 1
+      }],
+      payment_intent_data: {
+        metadata: {
+          user_id: current_user&.id,
+          listing_id: @listing.id
+        } 
+      },
+      success_url: "#{root_url}/listings",
+      cancel_url: "#{root_url}/listings/#{@listing.id}"
+    )
+
+    @session_id = session.id
   end
   
   def edit; 

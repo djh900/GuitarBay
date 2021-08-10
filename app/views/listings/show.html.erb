@@ -20,11 +20,11 @@
       <p>Listed by <%= @listing.user.username %> on <%= @listing.created_at.to_s.first(10) %></p>
       <div class="show-buttons">
         <% if user_signed_in? && current_user != @listing.user && !@listing.sold %>
-          <button class="button">Buy now</button>
+          <button data-stripe="payment" class="button">Buy now</button>
           <a href="mailto: <%= @listing.user.email %>" class="button">Contact Seller</a>
         <% elsif user_signed_in? && current_user == @listing.user %>
-          <%= link_to "Edit", edit_listing_path(@listing), class: "listing-button" %>
-          <%= link_to "Delete", listing_path(@listing), method: :delete, data: { confirm: "Are you sure you want to delete this listing?" }, class: "listing-button" %>
+          <%= link_to "Edit", edit_listing_path(@listing), class: "button" %>
+          <%= link_to "Delete", listing_path(@listing), method: :delete, data: { confirm: "Are you sure you want to delete this listing?" }, class: "button" %>
         <% else %>
           <p>Sign in to purchase or message seller</p>
         <% end %>
@@ -63,3 +63,16 @@
     <p><%= @listing.description %></p>
   </div>
 </main>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  document.querySelector("[data-stripe='payment']")
+      .addEventListener("click", () => {
+        const stripe = Stripe(
+          "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+        );
+        stripe.redirectToCheckout({
+          sessionId: "<%= @session_id %>"
+        });
+      });
+</script>
