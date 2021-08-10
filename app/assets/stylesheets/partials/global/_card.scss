@@ -1,0 +1,41 @@
+.card {
+  height: 170px;
+  border: 1px solid black;
+  margin: 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  .item-image {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      max-height: 150px;
+      max-width: 200px;
+      padding: 10px;
+    }
+  }
+  .item-description {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .listing-title {
+      font-size: 30px;
+      font-family: $font-headings;
+    }
+    .listing-details {
+      font-size: 14pt;
+    }
+    .listing-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 600px;
+      p {
+        font-size: 14pt;
+      }
+    }
+  }
+}
