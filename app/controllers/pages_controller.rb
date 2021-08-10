@@ -19,5 +19,7 @@ class PagesController < ApplicationController
     @year = params[:year]
     @manufacturer = params[:manufacturer]
     @model = params[:model]
+    listing_id = params[:id]
+    Listing.find(listing_id).update(sold: true)
   end
 end
