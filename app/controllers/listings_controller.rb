@@ -54,7 +54,7 @@ class ListingsController < ApplicationController
           seller_id: @listing.user.id
         }
       },
-      success_url: "#{root_url}/listings/#{@listing.id}",
+      success_url: "#{root_url}/success?year=#{@listing.year_manufactured}?manufacturer=#{@listing.manufacturer}?model=#{@listing.model}",
       cancel_url: "#{root_url}/listings/#{@listing.id}"
     )    
   end
