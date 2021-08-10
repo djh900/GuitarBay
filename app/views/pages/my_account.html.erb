@@ -31,10 +31,14 @@
           <%= listing.model %>
         </div>
         <div class="listing-details">
-          <p><span class="red-text">$<%= listing.price %></span> &emsp; Listed on <%= listing.created_at.to_s.first(10) %> &emsp; <%= listing.location %></p>
+          <p><span class="red-text">$<%= listing.price %></span> &emsp; Listed on <%= listing.created_at.to_s.first(10) %></p>
         </div>
         <div class="listing-buttons">
-          <p><%= listing.category.name %></p>
+          <% if listing.sold %>
+            <p>Sold</p>
+          <% else %>
+            <p>For Sale</p>
+          <% end %>
           <%= link_to "View", listing_path(listing), class: "listing-button" %>
           <%= link_to "Edit", edit_listing_path(listing), class: "listing-button" %>
           <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure you want to delete this listing?" }, class: "listing-button" %>
