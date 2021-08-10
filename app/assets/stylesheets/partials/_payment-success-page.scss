@@ -1,0 +1,16 @@
+// Styling for the successful payment page
+
+#payment-success-body {
+  height: 300px;
+  width: 1000px;
+  background: $white-color;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 15pt;
+  p {
+    padding-bottom: 50px;
+  }
+  .top-line {
+    padding-top: 50px;
+  }
+}
