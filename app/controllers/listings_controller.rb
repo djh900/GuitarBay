@@ -10,7 +10,7 @@ class ListingsController < ApplicationController
   before_action :get_listing, only: [:edit, :update, :destroy]
 
   def index
-    @listings = Listing.all
+    @listings = Listing.where(sold: false)
   end
   
   def new
