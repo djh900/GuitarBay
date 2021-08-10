@@ -1,1 +1,7 @@
-<p><%= @year %> <%= @manufacturer %> <%= @model %></p>
+<h2 class="page-heading">SUCCESS</h2>
+
+<main id="payment-success-body">
+<p>Your purchase of a <%= @year %> <%= @manufacturer %> <%= @model %> has been completed successfully</p>
+<p>We will send an email confirmation of your purchase shortly.</p>
+<%= link_to "Return to Listings", listings_path, class: "button" %>
+</main>
