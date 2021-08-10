@@ -8,5 +8,7 @@ class PagesController < ApplicationController
 
   def help; end
 
-  def my_account; end
+  def my_account
+    @user = current_user
+  end
 end
