@@ -14,6 +14,6 @@ class Listing < ApplicationRecord
   has_one_attached :image
 
   validates :model, presence: true, length: { maximum: 30 }
-  validates :price, presence: true
-  validates :location, presence: true
+  validates :price, presence: true, numericality: { greater_than: 0, less_than: 1000000, only_integer: true }
+  validates :location, presence: true, length: { in: 4..100 }
 end
