@@ -19,7 +19,6 @@ $font-headings: "Spectral", serif;
 // Importing partials
 
 @import "partials/global/navbar";
-@import "partials/global/footer";
 @import "partials/global/flash-messages";
 @import "partials/global/card";
 @import "partials/homepage";
@@ -28,6 +27,7 @@ $font-headings: "Spectral", serif;
 @import "partials/show-listing-page";
 @import "partials/listings-form";
 @import "partials/my-account-page";
+@import "partials/payment-success-page";
 
 // Default background color and font
 
