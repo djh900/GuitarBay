@@ -14,9 +14,11 @@
       <p class="red-text">$<%= @listing.price %></p>
       <p>Listed by <%= @listing.user.username %> on <%= @listing.created_at.to_s.first(10) %></p>
       <div class="show-buttons">
-        <a href="#" class="listing-button">Buy Now</a>
         <% if user_signed_in? %>
+          <a href="#" class="listing-button">Buy Now</a>
           <a href="mailto: <%= @listing.user.email %>" class="listing-button">Contact Seller</a>
+        <% else %>
+          <p>Sign in to purchase or message seller</p>
         <% end %>
       </div>
     </div>
