@@ -11,12 +11,37 @@
     <%= link_to "Change password", new_user_password_path(@user), class: "listing-button" %>
     <a href="#" class="listing-button">Delete account</a>
   </section>
+
   <section id="account-listings">
     <h2>My Listings</h2>
     <% if @listings.count >= 1 %>
       <% @listings.each do |listing| %>
-        <p><%= listing.model %></p>
-      <% end %>
+        <div class="card">
+      <div class="item-image">
+        <% if listing.image.attached? %>
+          <%= image_tag listing.image %>
+        <% else %>
+          <%= image_tag asset_path('generic-guitar-small.jpg') %>
+        <% end %>
+      </div>
+      <div class="item-description">
+        <div class="listing-title">
+          <%= listing.year_manufactured if listing.year_manufactured %>
+          <%= listing.manufacturer.name %>
+          <%= listing.model %>
+        </div>
+        <div class="listing-details">
+          <p><span class="red-text">$<%= listing.price %></span> &emsp; Listed on <%= listing.created_at.to_s.first(10) %> &emsp; <%= listing.location %></p>
+        </div>
+        <div class="listing-buttons">
+          <p><%= listing.category.name %></p>
+          <%= link_to "View", listing_path(listing), class: "listing-button" %>
+          <%= link_to "Edit", edit_listing_path(listing), class: "listing-button" %>
+          <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure you want to delete this listing?" }, class: "listing-button" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
     <% else %>
       <p>You don't have any listings yet.</p>
     <% end %>
