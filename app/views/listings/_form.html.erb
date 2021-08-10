@@ -33,7 +33,7 @@
 
   <div class="form-section">
     <%= f.label :price, class: "required" %>
-    <%= f.number_field :price %>
+    <%= f.number_field :price, placeholder: '$' %>
   </div>
 
   <div class="form-section">
@@ -53,12 +53,12 @@
 
   <div class="form-section">
     <%= f.label :scale_length %>
-    <%= f.number_field :scale_length %>
+    <%= f.number_field :scale_length, placeholder: 'inches', step: 0.01 %>
   </div>
 
   <div class="form-section">
     <%= f.label :fingerboard_radius %>
-    <%= f.number_field :fingerboard_radius %>
+    <%= f.number_field :fingerboard_radius, placeholder: 'inches', step: 0.01 %>
   </div>
 
   <div class="form-section">
@@ -108,7 +108,7 @@
 
   <div class="form-section">
     <%= f.label :location, class: "required" %>
-    <%= f.text_field :location %>
+    <%= f.text_field :location, placeholder: 'Melbourne, 3000' %>
   </div>
 
   <div class="form-section">
