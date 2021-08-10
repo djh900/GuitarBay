@@ -37,7 +37,11 @@ class ListingsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit; 
+    if current_user != @listing.user
+      render_404
+    end
+  end
 
   def update
     if @listing.update(strong_params)
