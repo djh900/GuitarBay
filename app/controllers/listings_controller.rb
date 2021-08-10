@@ -3,12 +3,17 @@ class ListingsController < ApplicationController
   # Ensure that a user is logged in before they can create/update/destroy any listings
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+  # Prefill the select menus in the form for new/edit listings
+  before_action :prefill_select_menus, only: [:new, :edit, :update]
+
+  # Retrieve the required listing prior to editing/deleting it
+  before_action :get_listing, only: [:edit, :update, :destroy]
+
   def index
     @listings = Listing.all
   end
   
   def new
-    prefill_select_menus
     @listing = Listing.new
   end
 
@@ -26,7 +31,7 @@ class ListingsController < ApplicationController
 
   def show
     begin
-      @listing = Listing.find(params[:id])
+      get_listing
     rescue ActiveRecord::RecordNotFound
       render_404
     end
@@ -34,10 +39,16 @@ class ListingsController < ApplicationController
 
   def edit; end
 
-  def update; end
+  def update
+    if @listing.update(strong_params)
+      flash[:notice] = "Listing updated successfully!"
+      redirect_to @listing
+    else
+      render 'edit'
+    end
+  end
 
   def destroy
-    @listing = Listing.find(params[:id])
     @listing.destroy
     flash[:notice] = "Listing successfully deleted!"
     redirect_to listings_path
@@ -64,6 +75,12 @@ class ListingsController < ApplicationController
     @countries = Country.all
     @cases = Case.all
     @deliveries = Delivery.all
+  end
+
+  # Function to retrieve the required listing item from the database
+
+  def get_listing
+    @listing = Listing.find(params[:id])
   end
 
 end
