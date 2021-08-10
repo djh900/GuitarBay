@@ -1,4 +1,6 @@
 <h1 class="page-heading">SUCCESS!</h1>
 <main id="payment-success-body">
-  
+  <p class="top-line">Your purchase of a <%= @year %> <%= @manufacturer %> <%= @model %> has been completed successfully.</p>
+  <p>Please check your email for confirmation.</p>
+  <%= link_to "Return to Listings", listings_path, class: "button" %>
 </main>
