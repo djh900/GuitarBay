@@ -20,7 +20,7 @@
       <p>Listed by <%= @listing.user.username %> on <%= @listing.created_at.to_s.first(10) %></p>
       <div class="show-buttons">
         <% if user_signed_in? && current_user != @listing.user && !@listing.sold %>
-          <button class="button" data-stripe="payment">Buy now</button>
+          <button class="button">Buy now</button>
           <a href="mailto: <%= @listing.user.email %>" class="button">Contact Seller</a>
         <% elsif user_signed_in? && current_user == @listing.user %>
           <%= link_to "Edit", edit_listing_path(@listing), class: "listing-button" %>
