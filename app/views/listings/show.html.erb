@@ -12,9 +12,14 @@
         <%= @listing.model %>
       </h1>
       <p class="red-text">$<%= @listing.price %></p>
+      <% if @listing.sold %>
+        <p>Sold</p>
+      <% else %>
+        <p>For Sale</p>
+      <% end %>
       <p>Listed by <%= @listing.user.username %> on <%= @listing.created_at.to_s.first(10) %></p>
       <div class="show-buttons">
-        <% if user_signed_in? && current_user != @listing.user %>
+        <% if user_signed_in? && current_user != @listing.user && !@listing.sold %>
           <a href="#" class="listing-button">Buy Now</a>
           <a href="mailto: <%= @listing.user.email %>" class="listing-button">Contact Seller</a>
         <% elsif user_signed_in? && current_user == @listing.user %>
