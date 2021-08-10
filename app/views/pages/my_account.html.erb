@@ -1,1 +1,25 @@
-<%= @user.username %>
+<h1 class="page-heading">MY ACCOUNT</h1>
+
+<main id="my-account">
+  <section id="account-details">
+    <h2>My Details</h2>
+    <p><span class="bold-text">First Name:</span> <%= @user.first_name %></p>
+    <p><span class="bold-text">Last Name:</span> <%= @user.last_name %></p>
+    <p><span class="bold-text">Email:</span> <%= @user.email %></p>
+    <p><span class="bold-text">Username:</span> <%= @user.username %></p>
+    <br>
+    <%= link_to "Change password", new_user_password_path(@user), class: "listing-button" %>
+    <a href="#" class="listing-button">Delete account</a>
+  </section>
+  <section id="account-listings">
+    <h2>My Listings</h2>
+    <% if @listings.count >= 1 %>
+      <% @listings.each do |listing| %>
+        <p><%= listing.model %></p>
+      <% end %>
+    <% else %>
+      <p>You don't have any listings yet.</p>
+    <% end %>
+
+  </section>
+</main>
