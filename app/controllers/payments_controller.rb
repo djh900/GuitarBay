@@ -1,3 +1,7 @@
 class PaymentsController < ApplicationController
-  def success; end
+  def success
+    @year = params[:year]
+    @manufacturer = params[:manufacturer]
+    @model = params[:model]
+  end
 end
