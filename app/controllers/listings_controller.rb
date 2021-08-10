@@ -40,7 +40,7 @@ class ListingsController < ApplicationController
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
-      customer_email: current_user.email,
+      customer_email: current_user&.email,
       line_items: [{
         name: "#{@listing.year_manufactured} #{@listing.manufacturer} #{@listing.model}",
         amount: @listing.price*100,
@@ -49,7 +49,7 @@ class ListingsController < ApplicationController
       }],
       payment_intent_data: {
         metadata: {
-          user_id: current_user.id,
+          user_id: current_user&.id,
           listing_id: @listing.id,
           seller_id: @listing.user.id
         }
