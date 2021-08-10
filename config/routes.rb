@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get 'index', to: 'pages#home'
   get 'help', to: 'pages#help'
   get 'my-account', to: 'pages#my_account'
+  get '/success', to: 'payments#success', as: "payment_success"
   resources :listings
 end
