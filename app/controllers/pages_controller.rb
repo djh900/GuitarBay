@@ -10,5 +10,6 @@ class PagesController < ApplicationController
 
   def my_account
     @user = current_user
+    @listings = Listing.where(user: current_user)
   end
 end
