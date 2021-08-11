@@ -25,16 +25,22 @@
         <% elsif user_signed_in? && current_user == @listing.user %>
           <%= link_to "Edit", edit_listing_path(@listing), class: "button" %>
           <%= link_to "Delete", listing_path(@listing), method: :delete, data: { confirm: "Are you sure you want to delete this listing?" }, class: "button" %>
-        <% else %>
+        <% elsif !user_signed_in? %>
           <p>Sign in to purchase or message seller</p>
+        <% elsif user_signed_in? && current_user != @listing.user && @listing.sold %>
+          <p>This listing is no longer available</p>
+        <% else %>
+          <p>You bought this item!</p>
         <% end %>
       </div>
     </div>
   </div>
+
   <div class="delivery-and-shipping">
     <p><span class="bold-text">Delivery:</span> <%= @listing.delivery.name %></p>
     <p><span class="bold-text">Location:</span> <%= @listing.location %></p>
   </div>
+
   <div class="features">
     <h2>Features</h2>
     <div class="features-list">
@@ -58,11 +64,14 @@
       </div>
     </div>
   </div>
+
   <div class="description">
     <h2>Description</h2>
     <p><%= @listing.description %></p>
   </div>
 </main>
+
+<% # Javascript for the buy button %>
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
