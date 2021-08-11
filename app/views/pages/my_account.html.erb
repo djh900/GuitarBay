@@ -8,8 +8,7 @@
     <p><span class="bold-text">Email:</span> <%= @user.email %></p>
     <p><span class="bold-text">Username:</span> <%= @user.username %></p>
     <br>
-    <%= link_to "Change password", new_user_password_path(@user), class: "listing-button" %>
-    <a href="#" class="listing-button">Delete account</a>
+    <%= link_to "Edit my details", edit_user_registration_path, class: "listing-button" %>
   </section>
 
   <section id="account-listings">
