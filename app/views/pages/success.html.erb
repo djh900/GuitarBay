@@ -3,5 +3,5 @@
 <main id="payment-success-body">
 <p>Your purchase of a <%= @year %> <%= @manufacturer %> <%= @model %> has been completed successfully</p>
 <p>We will send an email confirmation of your purchase shortly.</p>
-<%= link_to "Return to Listings", listings_path, class: "button" %>
+<%= link_to "Return to Listing", listing_path(@id), class: "button" %>
 </main>
