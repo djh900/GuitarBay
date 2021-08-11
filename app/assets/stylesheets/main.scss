@@ -21,6 +21,8 @@ $font-headings: "Spectral", serif;
 @import "partials/global/navbar";
 @import "partials/global/flash-messages";
 @import "partials/global/card";
+@import "partials/global/utility-classes";
+@import "partials/global/devise";
 @import "partials/homepage";
 @import "partials/helppage";
 @import "partials/listings-index-page";
@@ -34,55 +36,4 @@ $font-headings: "Spectral", serif;
 body {
   background: $grey-color;
   font-family: $font-body;
-}
-
-.whitespace-buffer {
-  display: block;
-  height: 30px;
-  background: $white-color;
-}
-
-.page-heading {
-  color: $white-color;
-  font-family: $font-headings;
-  font-size: 30pt;
-  margin: 30px 0;
-  text-align: center;
-}
-
-.button {
-  color: $white-color;
-  text-decoration: none;
-  background: $black-color;
-  padding: 15px 20px;
-  border-radius: 3px;
-  font-size: 14pt;
-  border: none;
-  &:hover {
-    background: $red-color;
-    cursor: pointer;
-  }
-}
-
-.red-text {
-  color: $red-color;
-}
-
-.bold-text {
-  font-weight: 700;
-}
-
-.listing-button {
-  color: $white-color;
-  text-decoration: none;
-  background: $black-color;
-  padding: 10px;
-  border-radius: 3px;
-  font-size: 14pt;
-  width: 90px;
-  text-align: center;
-  &:hover {
-    background: $red-color;
-    cursor: pointer;
-  }
 }

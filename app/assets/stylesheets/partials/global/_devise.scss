@@ -1,0 +1,21 @@
+// Styling for the devise forms
+
+.devise-form {
+  background: $white-color;
+  color: $black-color;
+  text-align: center;
+  font-size: 16pt;
+  max-width: 500px;
+  margin: 0 auto 50px auto;
+  padding: 40px;
+  .field {
+    label {
+      margin-bottom: 10px;
+    }
+  }
+  input {
+    font-size: 16pt;
+    margin: 10px;
+    outline: none;
+  }
+}
