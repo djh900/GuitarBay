@@ -1,30 +1,53 @@
 <h1 class="page-heading">LISTINGS</h1>
 
 <main id="listings-index-page">
-  <% @listings.each do |listing| %>
-    <div class="card">
-      <div class="item-image">
-        <% if listing.image.attached? %>
-          <%= image_tag listing.image %>
-        <% else %>
-          <%= image_tag asset_path('generic-guitar-small.jpg') %>
-        <% end %>
+
+  <div id="search-form">
+      <%= form_with url: listings_path, method: :get, local: true  do |f| %>
+        <%= f.text_field :query, placeholder: "Search by Model" %>
+      <% end %>
+  </div>
+
+  <% if @listings.count >= 1 %>
+    <% if params[:query] %>
+      <p class="search-results-title">Search Results for '<%= params[:query] %>'</p>
+    <% end %>
+    <% @listings.each do |listing| %>
+      <div class="card">
+        <div class="item-image">
+          <% if listing.image.attached? %>
+            <%= image_tag listing.image %>
+          <% else %>
+            <%= image_tag asset_path('generic-guitar-small.jpg') %>
+          <% end %>
+        </div>
+        <div class="item-description">
+          <div class="listing-title">
+            <%= listing.year_manufactured if listing.year_manufactured %>
+            <%= listing.manufacturer.name %>
+            <%= listing.model %>
+          </div>
+          <div class="listing-details">
+            <p><span class="red-text">$<%= listing.price %></span> &emsp; Listed by <%= listing.user.username %> on <%= listing.created_at.to_s.first(10) %></p>
+          </div>
+          <div class="listing-buttons">
+            <p><%= listing.location %></p>
+            <p><%= listing.category.name %></p>
+            <%= link_to "View", listing_path(listing), class: "listing-button" %>
+          </div>
+        </div>
       </div>
-      <div class="item-description">
-        <div class="listing-title">
-          <%= listing.year_manufactured if listing.year_manufactured %>
-          <%= listing.manufacturer.name %>
-          <%= listing.model %>
-        </div>
-        <div class="listing-details">
-          <p><span class="red-text">$<%= listing.price %></span> &emsp; Listed by <%= listing.user.username %> on <%= listing.created_at.to_s.first(10) %></p>
-        </div>
-        <div class="listing-buttons">
-          <p><%= listing.location %></p>
-          <p><%= listing.category.name %></p>
-          <%= link_to "View", listing_path(listing), class: "listing-button" %>
-        </div>
+    <% end %>
+    <% if params[:query] %>
+      <div class="whitespace-buffer"></div>
+      <div id="return-to-listings-button">
+        <%= link_to "Return to listings", listings_path, class: "button" %>
       </div>
+    <% end %>
+  <% else %>
+    <p class="search-results-title">No results found</p>
+    <div id="return-to-listings-button">
+      <%= link_to "Return to listings", listings_path, class: "button" %>
     </div>
   <% end %>
 </main>

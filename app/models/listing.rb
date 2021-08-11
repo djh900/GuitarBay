@@ -1,4 +1,5 @@
 class Listing < ApplicationRecord
+  
   belongs_to :user
   belongs_to :category
   belongs_to :manufacturer
@@ -16,4 +17,13 @@ class Listing < ApplicationRecord
   validates :model, presence: true, length: { maximum: 30 }
   validates :price, presence: true, numericality: { greater_than: 0, less_than: 1000000, only_integer: true }
   validates :location, presence: true, length: { in: 4..100 }
+
+  def self.search(query)
+    if query
+      return self.where("LOWER(model) LIKE ?", "%#{query.downcase}%")
+    else
+      return self.all
+    end
+  end
+
 end

@@ -7,3 +7,26 @@
   padding: 20px;
   margin-bottom: 50px;
 }
+
+#search-form {
+  text-align: center;
+  input {
+    outline: none;
+    font-size: 16pt;
+    padding: 3px;
+    width: 400px;
+    margin: 20px 0;
+  }
+}
+
+.search-results-title {
+  font-size: 16pt;
+  text-align: center;
+  padding: 20px 0;
+}
+
+#return-to-listings-button {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 30px 0;
+}
