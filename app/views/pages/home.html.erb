@@ -20,7 +20,7 @@
 <section id="recent-listings">
 
   <% @recent_listings.each do |listing| %>
-    <div class="recent-listing">
+    <a href="/listings/<%= listing.id %>" class="recent-listing">
       <div class="recent-image">
         <% if listing.image.attached? %>
           <%= image_tag listing.image %>
@@ -31,7 +31,7 @@
       <h3><%= listing.year_manufactured %> <%= listing.model %></h3>
       <p class="recent-listing-username">Listed by <%= listing.user.username %></p>
       <p class="recent-listing-price">$<%= listing.price %></p>
-    </div>
+    </a>
   <% end %>
 
 </section>
