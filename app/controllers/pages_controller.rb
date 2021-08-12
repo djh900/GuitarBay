@@ -5,6 +5,8 @@ class PagesController < ApplicationController
   # Ensure a user is signed in before they can access the my account or payment success pages
   before_action :authenticate_user!, only: [:my_account, :success]
 
+  skip_before_action :verify_authenticity_token, only: :webhook
+
   # Home page, displaying the mose recent 5 listings
 
   def home
