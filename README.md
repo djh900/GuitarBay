@@ -294,3 +294,18 @@ As this project was relatively small, there was no need to use a more advanced k
 The trello board currently looks as such:
 
 ![Final Trello screenshot](https://i.imgur.com/fSRJORg.png)
+
+### Future
+
+Some features that will be added to GuitarBay in the future include:
+
+- Searching by manufacturer, year and username, not just model
+- Transactional emails
+- In-app messaging
+- Responsive styling
+- Google Maps API for locations
+- Australia Post API for delivery cost estimates
+- An admin/superuser account
+- Reverb API for estimating item market values
+- Uploading multiple images with each listing
+- Favourited items and orders models
