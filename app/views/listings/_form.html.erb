@@ -1,4 +1,8 @@
+<% # This is the form for creating or editing a listing %>
+
 <%= form_with(model: @listing, local: true, id: "listing-form") do |f| %>
+
+  <% # Displaying error messages if a validation is not passed %>
 
   <% if @listing.errors.any? %>
     <div id="error-messages">
@@ -9,7 +13,11 @@
     </div>
   <% end %>
 
+  <% # Disclaimer %>
+
   <p id="disclaimer">Items marked in <span class="required">RED</span> are required.<br>Please try to be as accurate as possible when creating a listing.<br>For details on how we assess condition, please see the <a href="/help#condition-guide">Condition Guide</a></p>
+
+  <% # Form sections %>
 
   <div class="form-section">
     <%= f.label :category, class: "required" %>
@@ -120,6 +128,8 @@
     <%= f.label :image %>
     <%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %>
   </div>
+
+  <% # Submit button %>
 
   <div class="form-buttons">
     <%= f.submit "Submit", class: "button" %>

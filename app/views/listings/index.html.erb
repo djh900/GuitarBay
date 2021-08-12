@@ -2,11 +2,15 @@
 
 <main id="listings-index-page">
 
+  <% # Code for the search form %>
+
   <div id="search-form">
       <%= form_with url: listings_path, method: :get, local: true  do |f| %>
         <%= f.text_field :query, placeholder: "Search by Model" %>
       <% end %>
   </div>
+
+  <% # Looping through the listings %>
 
   <% if @listings.count >= 1 %>
     <% if params[:query] %>
@@ -38,6 +42,9 @@
         </div>
       </div>
     <% end %>
+
+    <% # Text at bottom of the page %>
+
     <% if params[:query] %>
       <div class="whitespace-buffer"></div>
       <div id="return-to-listings-button">
@@ -50,4 +57,5 @@
       <%= link_to "Return to listings", listings_path, class: "button" %>
     </div>
   <% end %>
+
 </main>

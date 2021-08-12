@@ -19,9 +19,13 @@
   </head>
 
   <body>
+    <% # Navbar %>
     <%= render partial: 'shared/navbar' %>
+
+    <% # Flash messages %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    
     <%= yield %>
   </body>
 </html>

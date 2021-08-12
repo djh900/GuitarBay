@@ -1,10 +1,16 @@
 <main id="show-listing-page">
+
   <div class="image-and-title">
+
+    <% # Displaying either the attached image or generic guitar image %>
+
     <% if @listing.image.attached? %>
       <%= image_tag @listing.image %>
     <% else %>
       <%= image_tag asset_path('generic-guitar-small.jpg') %>
     <% end %>
+
+    <% # The details next to the image, such as title, price, location, and buttons %>
     <div class="title">
       <h1>
         <%= @listing.year_manufactured if @listing.year_manufactured %>
@@ -36,12 +42,17 @@
         <% end %>
       </div>
     </div>
+
   </div>
+
+  <% # Delivery and shipping box %>
 
   <div class="delivery-and-shipping">
     <p><span class="bold-text">Delivery:</span> <%= @listing.delivery.name %></p>
     <p><span class="bold-text">Location:</span> <%= @listing.location %></p>
   </div>
+
+  <% # Features box %>
 
   <div class="features">
     <h2>Features</h2>
@@ -66,6 +77,8 @@
       </div>
     </div>
   </div>
+
+  <% # Description box %>
 
   <div class="description">
     <h2>Description</h2>

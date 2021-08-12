@@ -1,5 +1,7 @@
 class Listing < ApplicationRecord
   
+  # Foreign key associations
+
   belongs_to :user
   belongs_to :category
   belongs_to :manufacturer
@@ -12,11 +14,17 @@ class Listing < ApplicationRecord
   belongs_to :case
   belongs_to :delivery
 
+  # Image attachment
+  
   has_one_attached :image
+
+  # Validations for model/price/location attributes
 
   validates :model, presence: true, length: { maximum: 30 }
   validates :price, presence: true, numericality: { greater_than: 0, less_than: 1000000, only_integer: true }
   validates :location, presence: true, length: { in: 4..100 }
+
+  # Function for the search feature on the listings index page
 
   def self.search(query)
     if query

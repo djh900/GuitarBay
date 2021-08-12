@@ -1,3 +1,5 @@
+# Controller for all RESTful routes for the listings model
+
 class ListingsController < ApplicationController
 
   # Ensure that a user is logged in before they can create/update/destroy any listings
@@ -9,10 +11,14 @@ class ListingsController < ApplicationController
   # Retrieve the required listing prior to editing/deleting it
   before_action :get_listing, only: [:edit, :update, :destroy]
 
+  # Index page displays search results (or all listings if there is no search query entered)
+
   def index
     @listings = Listing.search(params[:query]).order(created_at: :desc).includes(:manufacturer).includes(:user).includes(:category)
   end
   
+  # Creating a new listing
+
   def new
     @listing = Listing.new
   end
@@ -28,6 +34,8 @@ class ListingsController < ApplicationController
       render 'new'
     end
   end
+
+  # Showing a single listing and creating a new stripe session when a show page is loaded
 
   def show
     begin
@@ -58,6 +66,8 @@ class ListingsController < ApplicationController
     @session_id = session.id
   end
   
+  # Editing an existing listing
+
   def edit; 
     if current_user != @listing.user
       render_404
@@ -72,6 +82,8 @@ class ListingsController < ApplicationController
       render 'edit'
     end
   end
+
+  # Deleting a listing
 
   def destroy
     @listing.destroy

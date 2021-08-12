@@ -1,5 +1,7 @@
 <h1 class="page-heading">MY ACCOUNT</h1>
 
+<% # Displaying account details with button to edit them %>
+
 <main id="my-account">
   <section id="account-details">
     <h2>My Details</h2>
@@ -10,6 +12,8 @@
     <br>
     <%= link_to "Edit my details", edit_user_registration_path, class: "listing-button" %>
   </section>
+
+  <% # Looping through a user's listings with buttons to edit/delete %>
 
   <section id="account-listings">
     <h2>My Listings</h2>
