@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :listings
+
   # Ensure usernames are saved as lowercase to prevent forgery
   
   before_save :enforce_lower_case_username
